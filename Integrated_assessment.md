@@ -12,40 +12,7 @@ DELVAL LTD faces challenges with:
 
 ## Solution Architecture
 
-graph TD
-    subgraph Development
-        GIT[Git Repository]
-        JENKINS[Jenkins CI/CD]
-    end
-
-    subgraph Testing
-        TEST_ENV[Test Environment]
-        SELENIUM[Automated Tests]
-        SONAR[SonarQube]
-    end
-
-    subgraph Production
-        K8S[Kubernetes Cluster]
-        subgraph Services
-            WEB[Website]
-            DB[Data Store]
-            NOTIFY[Notification System]
-        end
-        PROM[Prometheus]
-        ALERT[AlertManager]
-        GRAFANA[Grafana]
-    end
-
-    GIT --> JENKINS
-    JENKINS --> TEST_ENV
-    JENKINS --> SONAR
-    TEST_ENV --> K8S
-    K8S --> WEB
-    K8S --> DB
-    K8S --> NOTIFY
-    PROM --> ALERT
-    PROM --> GRAFANA
-    K8S --> PROM
+![solution architecture](image.png)
 
 
 ## Implementation Plan
